@@ -52,8 +52,8 @@ function! Bbye(action, bang, buffer_name)
 		exe a:action . a:bang . " " . buffer
 	endif
 	
-	if exists('#User#BufferBbye')
-		exe 'doautocmd User BufferBbye'
+	if exists('#User#BufBbye')
+		exe 'doautocmd User BufBbye'
 	endif
 endfunction
 
