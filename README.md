@@ -4,7 +4,7 @@ Bbye allows you to do delete buffers (close files) without closing your windows 
 
 Vim by default closes all windows that have the buffer (file) open when you do `:bdelete`.  If you've just got your splits and columns perfectly tuned, having them messed up equals a punch in the face and that's no way to tango.
 
-Bbye gives you `:Bdelete` and `:Bwipeout` commands that behave like well designed citizens:
+Bbye gives you `:BbyeDelete` and `:BbyeWipeout` commands that behave like well designed citizens:
 
 - Close and remove the buffer.
 - Show another file in that window.
@@ -25,12 +25,12 @@ mkdir -p ~/.vim/bundle/bbye
 
 Using Git:
 ```
-git clone https://github.com/moll/vim-bbye.git ~/.vim/bundle/bbye
+git clone https://github.com/tanner-d/vim-bbye.git ~/.vim/bundle/bbye
 ```
 
 Using Wget:
 ```
-wget https://github.com/moll/vim-bbye/archive/master.tar.gz -O- | tar -xf- --strip-components 1 -C ~/.vim/bundle/bbye
+wget https://github.com/tanner-d/vim-bbye/archive/master.tar.gz -O- | tar -xf- --strip-components 1 -C ~/.vim/bundle/bbye
 ```
 
 Then prepend that directory to Vim's `&runtimepath` (or use [Pathogen](https://github.com/tpope/vim-pathogen)):
@@ -41,20 +41,20 @@ set runtimepath^=~/.vim/bundle/bbye
 
 Using
 -----
-Instead of `:bdelete` and `:bwipeout`, use `:Bdelete` and `:Bwipeout` respectively. Fortunately autocomplete helps by sorting `:Bdelete` before its lowercase brother.
+Instead of `:bdelete` and `:bwipeout`, use `:BbyeDelete` and `:BbyeWipeout` respectively.
 
-As it's likely you'll be using `:Bdelete` often, make a shortcut to `\q`, for example, to save time. Throw this to your `vimrc`:
+As it's likely you'll be using `:BbyeDelete` often, make a shortcut to `\q`, for example, to save time. Throw this to your `vimrc`:
 ```
-:nnoremap <Leader>q :Bdelete<CR>
+:nnoremap <Leader>q :BbyeDelete<CR>
 ```
 
 ### Buffer delete vs wipeout
-Vim has two commands for closing a buffer: `:bdelete` and `:bwipeout`. The former removes the file from the buffer list, clears its options, variables and mappings. However, it remains in the jumplist, so `Ctrl-o` takes you back and reopens the file. If that's not what you want, use `:bwipeout` or Bbye's equivalent `:Bwipeout` where you would've used `:bdelete`.
+Vim has two commands for closing a buffer: `:bdelete` and `:bwipeout`. The former removes the file from the buffer list, clears its options, variables and mappings. However, it remains in the jumplist, so `Ctrl-o` takes you back and reopens the file. If that's not what you want, use `:bwipeout` or Bbye's equivalent `:BbyeWipeout` where you would've used `:bdelete`.
 
 ### Closing all open buffers and files
 Occasionally you'll want to close all open buffers and files while leaving your pristine window setup as is. That's easy. Just do:
 ```
-:bufdo :Bdelete
+:bufdo :BbyeDelete
 ```
 
 For some variations, like closing all-but-one buffer, see [@qiushihe](https://github.com/qiushihe)'s script in https://github.com/moll/vim-bbye/pull/4.
@@ -62,7 +62,7 @@ For some variations, like closing all-but-one buffer, see [@qiushihe](https://gi
 ### Aliasing to :Bclose
 If you've used any `Bclose.vim` scripts before and for some reason need the `:Bclose` command to exist, you may make an alias:
 ```
-command! -bang -complete=buffer -nargs=? Bclose Bdelete<bang> <args>
+command! -bang -complete=buffer -nargs=? Bclose BbyeDelete<bang> <args>
 ```
 
 
