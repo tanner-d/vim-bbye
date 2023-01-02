@@ -51,7 +51,7 @@ function! Bbye(action, bang, buffer_name)
 	if buflisted(buffer) && buffer != bufnr("%")
 		exe a:action . a:bang . " " . buffer
 	endif
-	
+
 	if exists('#User#BufBbye')
 		exe 'doautocmd User BufBbye'
 	endif
